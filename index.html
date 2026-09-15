@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyro Interior & Fabrication | Premium Metalwork & Industrial Design</title>
+    
+    <!-- Browser Tab Icon (Favicon) -->
+    <link rel="icon" type="image/jpeg" href="pryoo.jpg">
+
+    <style>
+        /* CSS Reset & Dark Industrial Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --bg-color: #0f1012;
+            --card-bg: #181a1e;
+            --accent-orange: #ff5500;
+            --accent-gold: #e67e22;
+            --text-light: #f1f2f6;
+            --text-gray: #a4b0be;
+            --border-color: #2c2f36;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: rgba(15, 16, 18, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(8px);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
+        }
+
+        .site-logo {
+            height: 50px; /* Adjust height based on your logo shape */
+            width: auto;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(255, 85, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .site-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .brand-name {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+
+        .brand-name span {
+            color: var(--accent-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            background: linear-gradient(180deg, rgba(15, 16, 18, 0.7) 0%, rgba(15, 16, 18, 1) 100%),
+                        url('https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+
+        .hero-logo {
+            max-width: 160px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 15px rgba(255, 85, 0, 0.4));
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-orange);
+            color: #fff;
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #d44400;
+            transform: translateY(-2px);
+        }
+
+        /* General Section Styling */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-orange);
+            margin: 0.8rem auto 0;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            padding: 2.5rem 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-orange);
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 8px;
+            background-color: var(--card-bg);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 1.5rem;
+        }
+
+        .portfolio-overlay h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .portfolio-overlay p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 3rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #08090a;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-gray);
+            font-size: 0.85rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+            .nav-links { display: none; }
+            .contact-container { padding: 1.5rem; }
+            .brand-name { display: none; } /* Show logo image only on small screens */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <nav>
+        <a href="#" class="logo-container">
+            <img src="pryoo.jpg" alt="Pyro Interior & Fabrication Logo" class="site-logo">
+            <span class="brand-name">PYRO <span>FABRICATION</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="pryoo.jpg" alt="Pyro Logo" class="hero-logo">
+        <h1>Crafting High-End Interiors</h1>
+        <p>Premium custom metal fabrication and industrial interior solutions built to your exact specifications.</p>
+        <a href="#contact" class="btn-primary">Request a Quote</a>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Custom Metal Furniture</h3>
+                <p>High-durability dining tables, coffee tables, industrial shelving, and bespoke seating engineered for custom spaces.</p>
+            </div>
+            <div class="service-card">
+                <h3>Architectural Metalwork</h3>
+                <p>Custom staircases, steel railings, room dividers, and structural features built for modern residential and commercial builds.</p>
+            </div>
+            <div class="service-card">
+                <h3>Commercial & Storefronts</h3>
+                <p>Heavy-duty bars, display racks, reception desks, and interior fixtures tailored for retail, hospitality, and office spaces.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Industrial Metalwork">
+                <div class="portfolio-overlay">
+                    <h4>Custom Industrial Dividers</h4>
+                    <p>Steel & Textured Glass</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Metal Fabrication Project">
+                <div class="portfolio-overlay">
+                    <h4>Architectural Steel Frame</h4>
+                    <p>Precision Fabrication</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80" alt="Custom Furniture">
+                <div class="portfolio-overlay">
+                    <h4>Bespoke Steel Dining Table</h4>
+                    <p>Matte Black Finish</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact">
+        <h2 class="section-title">Bring Us Your Vision</h2>
+        <div class="contact-container">
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Quote request submitted successfully!');">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="project">Project Details</label>
+                    <textarea id="project" rows="5" required placeholder="Tell us about your project dimensions, materials, or vision..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Submit Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Pyro Interior & Fabrication. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
